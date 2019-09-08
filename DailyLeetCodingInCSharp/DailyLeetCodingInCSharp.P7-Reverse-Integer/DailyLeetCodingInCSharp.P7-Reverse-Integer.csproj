@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>DailyLeetCodingInCSharp.P7_Reverse_Integer</RootNamespace>
+  </PropertyGroup>
+
+</Project>
