@@ -93,7 +93,20 @@ namespace DailyLeetCodingInCSharp.Solutions
 
         public string LongestPalindrome(string s) 
         {
-            
+            var stringLength = s.Length;
+
+            int subStringStartIndex = 0;
+            int subStringEndIndex = 0;
+
+            int minSubStringStartIndex = 0;
+            int minSubStringEndIndex = 0;
+
+            int longestPalindromeLength = 0;
+
+            while(subStringEndIndex - subStringStartIndex < stringLength / 2)
+            {
+                
+            }
         }
     }
 }
