@@ -90,5 +90,10 @@ namespace DailyLeetCodingInCSharp.Solutions
 
             return isLengthOdd ? keyValuePairs[!isSecondAdd] : ((double)(keyValuePairs[true] + keyValuePairs[false])) / 2;
         }
+
+        public string LongestPalindrome(string s) 
+        {
+            
+        }
     }
 }
