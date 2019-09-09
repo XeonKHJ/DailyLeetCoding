@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DailyLeetCodingInCSharp.P7-Reverse-Integer\DailyLeetCodingInCSharp.P7-Reverse-Integer.csproj" />
+    <ProjectReference Include="..\DailyLeetCodingInCSharp.Solutions\DailyLeetCodingInCSharp.Solutions.csproj" />
   </ItemGroup>
 
 </Project>

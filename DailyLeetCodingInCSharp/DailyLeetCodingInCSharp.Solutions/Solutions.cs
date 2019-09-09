@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DailyLeetCodingInCSharp.P7_Reverse_Integer
+namespace DailyLeetCodingInCSharp.Solutions
 {
     public class Solution
     {
@@ -89,49 +89,6 @@ namespace DailyLeetCodingInCSharp.P7_Reverse_Integer
             }
 
             return isLengthOdd ? keyValuePairs[!isSecondAdd] : ((double)(keyValuePairs[true] + keyValuePairs[false])) / 2;
-        }
-
-        public void ReorderList(LinkedListNode<int> head)
-        {
-            var currentNode = head;
-
-            List<LinkedListNode<int>> orderedList = new List<LinkedListNode<int>>();
-            List<LinkedListNode<int>> reversedOrderedList = new List<LinkedListNode<int>>();
-            Dictionary<bool, List<LinkedListNode<int>>> pairs = new Dictionary<bool, List<LinkedListNode<int>>>();
-
-            bool isEven = true;
-
-            while (currentNode != null)
-            {
-                pairs[isEven].Add(currentNode);
-                isEven = !isEven;
-                currentNode = currentNode.Next;
-            }
-
-            isEven = true;
-
-            currentNode = head;
-
-            for(int index = 0; index < orderedList.Count; ++index)
-            {
-
-                if(index == orderedList.Count - 1)
-                {
-                    if((orderedList.Count + reversedOrderedList.Count) % 2 == 0)
-                    {
-                        orderedList[index].Next = orderedList[reversedOrderedList.Count - index - 1];
-                        orderedList[reversedOrderedList.Count - index] = null;
-                    }
-                    //偶数
-                    else
-                    {
-                        orderedList[index].Next = null;
-                    }
-                }
-
-                orderedList[index].Next = reversedOrderedList[reversedOrderedList.Count - 1 - index];
-                reversedOrderedList[reversedOrderedList.Count - 1 - index].Next = orderedList[index + 1];
-            }
         }
     }
 }

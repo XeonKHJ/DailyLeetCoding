@@ -1,4 +1,5 @@
 ﻿using System;
+using DailyLeetCodingInCSharp.Solutions;
 
 namespace DailyLeetCodingInCSharp
 {
@@ -7,7 +8,7 @@ namespace DailyLeetCodingInCSharp
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            P7_Reverse_Integer.Solution solution = new P7_Reverse_Integer.Solution();
+            Solution solution = new Solution();
             Console.WriteLine(solution.LengthOfLongestSubstring("abcdedskfdjaldkfksjldkjlkjlkwjlkerjkjlkjlkjlkjlkjiiqwertyuiop"));
 
             int[] a = { 1,3,5,7};
