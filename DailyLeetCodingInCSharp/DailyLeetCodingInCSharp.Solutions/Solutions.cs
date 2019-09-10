@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DailyLeetCodingInCSharp.CustomizedDataStructure;
 
 namespace DailyLeetCodingInCSharp.Solutions
 {
@@ -91,7 +92,7 @@ namespace DailyLeetCodingInCSharp.Solutions
             return isLengthOdd ? keyValuePairs[!isSecondAdd] : ((double)(keyValuePairs[true] + keyValuePairs[false])) / 2;
         }
 
-        public string LongestPalindrome(string s) 
+        public string LongestPalindrome(string s)
         {
             var stringLength = s.Length;
 
@@ -103,10 +104,118 @@ namespace DailyLeetCodingInCSharp.Solutions
 
             int longestPalindromeLength = 0;
 
-            while(subStringEndIndex - subStringStartIndex < stringLength / 2)
+            while (subStringEndIndex - subStringStartIndex < stringLength / 2)
             {
-                
+                ;
             }
+
+            return "";
+        }
+
+
+        private int maxDepth = 0;
+        private int currentDepth = 0;
+        public int MaxDepth(TreeNode root)
+        {
+            if (root != null)
+            {
+                DepthFirstSearch(root);
+            }
+            return maxDepth;
+        }
+
+        private void DepthFirstSearch(TreeNode treeNode)
+        {
+            ++currentDepth;
+            maxDepth = currentDepth > maxDepth ? currentDepth : maxDepth;
+            if (treeNode.left != null)
+            {
+                DepthFirstSearch(treeNode.left);
+            }
+            if (treeNode.right != null)
+            {
+                DepthFirstSearch(treeNode.right);
+            }
+            --currentDepth;
+            return;
+        }
+
+
+        /*
+        实现 int sqrt(int x) 函数。
+        计算并返回 x 的平方根，其中 x 是非负整数。
+        由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。 
+        */
+        public int MySqrt(int x) 
+        {
+            return (int)Math.Sqrt(x);
+        }
+
+        /*
+        一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+        机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
+        问总共有多少条不同的路径？ 
+        */
+        
+        private int RouteCounts = 0;
+        private Stack<HJPoint> PointStack = new Stack<HJPoint>();
+        public int UniquePaths(int m, int n) 
+        {
+            HJPoint initalPoint = new HJPoint(0, n - 1);
+            HJSize map = new HJSize(m, n);
+            PointStack.Push(initalPoint);
+            
+            do
+            {
+                var curPoint = PointStack.Pop();
+                
+                if(curPoint.X == map.Width - 1 && curPoint.Y == 0)
+                {
+                    ++RouteCounts;
+                    continue;
+                }
+                var rightPoint = new HJPoint(curPoint.X + 1, curPoint.Y );
+                var belowPoint = new HJPoint(curPoint.X , curPoint.Y - 1);
+                if(map.Contains(rightPoint))
+                {
+                    PointStack.Push(rightPoint);
+                }
+                if(map.Contains(belowPoint))
+                {
+                    PointStack.Push(belowPoint);
+                }
+            } while (PointStack.Count != 0);
+
+            return RouteCounts;
+        }
+        private struct HJSize
+        {
+            public HJSize(int width, int height)
+            {
+                Width = width;
+                Height = height;
+            }
+            public int Width;
+            public int Height;
+
+            public bool Contains(HJPoint point)
+            {
+                if(point.X < Width && point.Y < Height && point.X >= 0 && point.Y >= 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+        private struct HJPoint
+        {
+            public HJPoint(int x, int y)
+            {
+                X = x;
+                Y = y;
+            }
+            public int X;
+            public int Y;
         }
     }
 }
